@@ -4,6 +4,8 @@ import pandas as pd
 
 # Load the optimized XGBoost model
 model = joblib.load("xgb_top_features.pkl")
+print("New XGBoost version deployed!")
+
 
 # Define the top 9 features used for prediction
 FEATURES = [
@@ -51,6 +53,7 @@ def predict():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 if __name__ == "__main__":
