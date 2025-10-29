@@ -47,6 +47,7 @@ def predict():
         return jsonify({
             "prediction": int(prediction),
             "probability": round(probability, 4)
+            "note": "🧠 Model updated via CI/CD!"
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
