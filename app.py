@@ -4,7 +4,6 @@ import pandas as pd
 
 # Load the optimized XGBoost model
 model = joblib.load("xgb_top_features.pkl")
-print("New XGBoost version deployed!")
 
 
 # Define the top 9 features used for prediction
@@ -26,7 +25,8 @@ app = Flask(__name__)
 def home():
     return jsonify({
         "message": "Alzheimer Prediction API is running 🚀",
-        "required_features": FEATURES
+        "required_features": FEATURES,
+        'note': "🧠 Model updated via CI/CD!"
     })
 
 @app.route("/predict", methods=["POST"])
