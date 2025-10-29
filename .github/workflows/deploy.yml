@@ -3,7 +3,7 @@ name: Deploy to AWS Elastic Beanstalk
 on:
   push:
     branches:
-      - master   # triggers whenever you push to main branch
+      - master
 
 jobs:
   deploy:
@@ -18,9 +18,12 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Install AWS CLI
+        run: pip install awscli
+
+      - name: Create deployment package
         run: |
-          pip install -r requirements.txt || true
+          zip -r deploy.zip . -x "*.git*"
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
@@ -31,4 +34,4 @@ jobs:
           environment_name: alzheimer-env
           version_label: v-${{ github.run_number }}
           region: us-west-2
-          deployment_package: Dockerrun.aws.json
+          deployment_package: deploy.zip
