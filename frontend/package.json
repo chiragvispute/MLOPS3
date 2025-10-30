@@ -9,5 +9,8 @@
   },
   "keywords": ["alzheimer", "prediction", "healthcare", "ai"],
   "author": "Your Name",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
 }
