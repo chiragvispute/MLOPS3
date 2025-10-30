@@ -1,0 +1,13 @@
+{
+  "name": "alzheimer-prediction-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Alzheimer's Risk Assessment Tool",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build step required for static site' && exit 0",
+    "start": "python -m http.server 3000"
+  },
+  "keywords": ["alzheimer", "prediction", "healthcare", "ai"],
+  "author": "Your Name",
+  "license": "MIT"
+}
